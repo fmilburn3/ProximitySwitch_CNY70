@@ -1,7 +1,7 @@
 /*
   Demonstration of CNY70 Reflective Sensor being used as a proximity
-  switch.  This simple circuit and sketch goes HIGH when a
-  reflective surface is close and LOW when taken away.  The CNY70
+  switch.  This simple circuit and sketch goes LOW when a
+  reflective surface is close and HIGH when taken away.  The CNY70
   Reflective Sensor can be found at:
   https://www.addicore.com/Reflective-Optical-Sensor-CNY70-p/224.htm
   
@@ -32,7 +32,7 @@
         |-o----   ----o-|      Lettering is on right vertical face   
           |           |          with indents as shown
           |           |
-          |           ------ Pin 6
+          |           ------ Pin 5
           |           |
        Purple        Red       
           |           |
@@ -47,7 +47,7 @@
   Released into the public domain
 */
 
-const int sensorPin = 7;         // Specify a digital pin
+const int sensorPin = 5;         // Specify a digital pin
 const int redPin = RED_LED;      // change to 13 for Arduino
 
 void setup() 
@@ -65,12 +65,12 @@ void loop()
   Serial.print(thisReading);
   if (thisReading == HIGH)                  
   {                                           
-    Serial.println(": Reflective surface close");
+    Serial.println(": Reflective surface far");
     digitalWrite(redPin, HIGH);
   }  
   else
   {                                           
-    Serial.println(": Reflective surface far");
+    Serial.println(": Reflective surface close");
     digitalWrite(redPin, LOW);
   } 
   delay(200);
